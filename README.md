@@ -113,4 +113,3 @@ This page must allow the user to return to the WELCOME SCREEN.
   - [ ] Implement game mechanics
   - [ ] Implement game levels
   - [ ] Implement game win/lose conditions
-  - [ ] Add navigation to sign-up and home screens
