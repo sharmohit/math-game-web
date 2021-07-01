@@ -1,4 +1,4 @@
-# ✖️Math Game🎮
+# ✖️Math vs Zombies🧟‍♂️
 
 ## DETAILED REQUIREMENTS
 
@@ -95,3 +95,22 @@ looks like this:
 
 This page must allow the user to return to the WELCOME SCREEN.
 ##
+## Task Lists
+- [ ] 1. Project and Assets Setup @MohitSharma(101342267)
+  - [x] Create basic project
+  - [x] Search game assets(backgrounds, music, sound effects)
+  - [ ] Assets editing and correction (resizing, croping, triming)
+  - [x] Group assets by levels
+
+- [ ] 2. Implement Welcome Screen @JavteshSinghBhullar(101348129)
+  - [ ] Create and implement player name Input
+  - [ ] Create and implement main menu buttons (START, VIEW RULES, HIGH SCORES)
+  - [ ] Create and implement view rules and high scores popup box
+  - [ ] Implement main menu background audio with music on/off button
+
+- [ ] 3. Implement Game Screen @MohitSharma(101342267)
+  - [ ] Design game screen
+  - [ ] Implement game mechanics
+  - [ ] Implement game levels
+  - [ ] Implement game win/lose conditions
+  - [ ] Add navigation to sign-up and home screens
