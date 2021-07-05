@@ -3,3 +3,79 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+p {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 5px;
+}
+
+main {
+    background-color: #000000;
+}
+
+.align-middle {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    overflow: hidden;
+}
+
+#level-container {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+#hud-items {
+    /* border: 2px solid black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bolder;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.zombie-container {
+    /* border: 2px solid violet; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 300px;
+    /* zoom: 0.2; */
+}
+
+.row-item {
+    /* border: 2px solid springgreen; */
+    color: #ffffff;
+    text-align: center;
+}
+
+.row-item img {
+    width: auto;
+    height: 100px;
+}
+
+#level-container{
+    position: relative;
+    background-image: url('/assets/img/level-1/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    padding: 10px;
+}
+
+#player-img {
+    z-index: 1;
+    position: absolute;
+    width: 70px;
+    height: 150px;
+    top: 50%;
+    left: 70%;
+}
