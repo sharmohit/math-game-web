@@ -103,8 +103,8 @@ This page must allow the user to return to the WELCOME SCREEN.
   - [x] Group assets by levels
 
 - [ ] 2. Implement Welcome Screen @JavteshSinghBhullar(101348129)
-  - [ ] Create and implement player name Input
-  - [ ] Create and implement main menu buttons (START, VIEW RULES, HIGH SCORES)
+  - [x] Create and implement player name Input
+  - [x] Create and implement main menu buttons (START, VIEW RULES, HIGH SCORES)
   - [ ] Create and implement view rules popup box
   - [ ] Implement main menu background audio with music on/off button
 
