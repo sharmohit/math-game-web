@@ -111,5 +111,5 @@ This page must allow the user to return to the WELCOME SCREEN.
 - [ ] 3. Implement Game Screen @MohitSharma(101342267)
   - [ ] Design game screen
   - [ ] Implement game mechanics
-  - [ ] Implement game levels
-  - [ ] Implement game win/lose conditions
+  - [x] Implement game levels
+  - [x] Implement game win/lose conditions
