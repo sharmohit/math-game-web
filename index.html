@@ -17,6 +17,17 @@
 
     <img class ="main-img" src="assets/img/background1.jpeg" alt="Background Image";/>
 
+    <div class="popup" id="popup-1">
+        <div class="overlay"></div>
+        <div class="content">
+          <div class="close-btn" onclick="togglePopup()">×</div>
+          <h1>Game Rules </h1>
+          <br>
+          <br>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo aspernatur laborum rem sed laudantium excepturi veritatis voluptatum architecto, dolore quaerat totam officiis nisi animi accusantium alias inventore nulla atque debitis.</p>
+        </div>
+      </div>
+
       <div class="table centered">
         <div class='cell'>
             <form id="login" action="index.html">
@@ -30,10 +41,16 @@
                 <br />
                 <input class="button" type="submit" value="Start Game" />
                 <br /> 
-                <button class="button" > View Rules </button>
+                <!-- <button class="button" onclick="togglePopup()" > View Rules </button> -->
+
                 <button class="button" > High Score </button>
+                
             </form>
+            <button class="buttonPop" onclick="togglePopup()">View Rules</button>
         </div>
     </div>
+
+      <script type = "text/javascript" src = "app".js> </scripttype></script>
+
 </body>
 </html>
