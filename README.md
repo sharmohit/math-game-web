@@ -105,7 +105,7 @@ This page must allow the user to return to the WELCOME SCREEN.
 - [ ] 2. Implement Welcome Screen @JavteshSinghBhullar(101348129)
   - [x] Create and implement player name Input
   - [x] Create and implement main menu buttons (START, VIEW RULES, HIGH SCORES)
-  - [ ] Create and implement view rules popup box
+  - [x] Create and implement view rules popup box
   - [ ] Implement main menu background audio with music on/off button
 
 - [ ] 3. Implement Game Screen @MohitSharma(101342267)
