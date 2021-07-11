@@ -5,10 +5,10 @@ const MAX_FIRST_NUM = 15
 const MAX_SECOND_NUM = 10
 const MAX_GAME_TIME = 60
 
-let screenEnd = visualViewport.width
-let currentLevel = 1
-let correctRow = -1
-let answer = 0
+let screenEnd
+let currentLevel
+let correctRow
+let answer
 let remainingTime = MAX_GAME_TIME
 
 const levelContainer = document.querySelector("#level-container")
@@ -17,7 +17,7 @@ const zombieElements = document.querySelectorAll(".zombie")
 
 let remainingTimeText = document.querySelector("#remaining-time")
 let currentLevelText = document.querySelector("#hud-items > p")
-let resultUI = document.querySelector(".result > h1")
+let resultUI = document.querySelector("#result")
 let timerInterval
 
 let player = null
@@ -210,9 +210,9 @@ const gameOver = (isWon) => {
     }
 
     if (isWon) {
-        resultUI.innerText = "You Won"
+        document.getElementById("game-over-text").innerText = "YOU WON"
     } else {
-        resultUI.innerText = "Game Over"
+        document.getElementById("game-over-text").innerText = "YOU LOSE"
     }
 
     resultUI.classList.remove("hidden")
@@ -220,12 +220,24 @@ const gameOver = (isWon) => {
     document.querySelector("body").removeEventListener("keydown", onKeyDown)
 }
 
+const init = () => {
+    document.querySelector("body").addEventListener("keydown", onKeyDown)
+    screenEnd = visualViewport.width
+    currentLevel = 1
+    correctRow = -1
+    answer = 0
+    remainingTime = MAX_GAME_TIME
+    remainingTimeText.innerText = remainingTime
+    clearInterval(timerInterval)
+    timerInterval = setInterval(updateRemainingTime, 1000)
+}
+
 const main = () => {
     questionGenerator = new QuestionGenerator(MAX_FIRST_NUM, MAX_SECOND_NUM)
     player = new Player("Dummy", playerElements)
+    init()
     createZombies()
     setupLevel()
-    timerInterval = setInterval(updateRemainingTime, 1000)
 }
 
 const onKeyDown = (e) => {
@@ -242,6 +254,13 @@ const onWindowResize = () => {
     screenEnd = visualViewport.width
 }
 
+const onPlayAgain = () => {
+    console.log("Play Again")
+    resultUI.classList.add("hidden")
+    init()
+    setupLevel()
+}
+
 window.addEventListener("load", main)
 window.addEventListener('resize', onWindowResize);
-document.querySelector("body").addEventListener("keydown", onKeyDown)
+document.getElementById("play-again-btn").addEventListener("click", onPlayAgain)
