@@ -10,6 +10,8 @@
     <link rel="manifest" href="/assets/img/favicon/site.webmanifest">
     <link type="text/css" rel="stylesheet" href="assets/css/style.css">
     <title>Math vs Zombies</title>
+
+    
 </head>
 <body>
 
@@ -28,6 +30,7 @@
         </div>
       </div>
 
+
       <div class="table centered">
         <div class='cell'>
             <form id="login" action="index.html">
@@ -41,16 +44,30 @@
                 <br />
                 <input class="button" type="button" onclick="location.href='game.html';" value="Start Game" />
                 <br /> 
-                <!-- <button class="button" onclick="togglePopup()" > View Rules </button> -->
 
-                <button class="button" > High Score </button>
-                
+                <button class="button" > High Score </button>  
+
+                <br>
+                <br>
+
+                <audio id='audio' controls>
+                  <source src= "assets/mp3/melodyloops-preview-robotic-dreams-3m30s.mp3"
+                  type="audio/mpeg">
+              </audio>
+              <br>
+
             </form>
+
             <button class="buttonPop" onclick="togglePopup()">View Rules</button>
+            
         </div>
     </div>
 
-      <script type = "text/javascript" src = "app".js> </scripttype></script>
+    <audio id="testAudio" hidden src="assets/mp3/melodyloops-preview-robotic-dreams-3m30s.mp3" type="audio/mpeg">
+    </audio>
+    
+    <button  id="playAudio" class="audiomp3" onclick="playMe()">Play &#9658</button>
+     
 
 </body>
 </html>
