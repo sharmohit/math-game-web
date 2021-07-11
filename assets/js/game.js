@@ -5,11 +5,13 @@ const MAX_FIRST_NUM = 15
 const MAX_SECOND_NUM = 10
 const MAX_GAME_TIME = 60
 
+let screenEnd = visualViewport.width
 let currentLevel = 1
 let correctRow = -1
 let answer = 0
 let remainingTime = MAX_GAME_TIME
 
+const levelContainer = document.querySelector("#level-container")
 const playerElements = document.querySelectorAll(".player")
 const zombieElements = document.querySelectorAll(".zombie")
 
@@ -34,9 +36,11 @@ class Player {
         const randomPlayerIndex = Math.floor(Math.random() * this.elements.length)
         for (let i = 0; i < this.elements.length; i++) {
             this.elements[i].classList.add("hidden")
+            this.elements[i].classList.remove("row-item")
             this.elements[i].querySelector("p").innerText = answer
             if (i === randomPlayerIndex) {
                 this.elements[i].classList.remove("hidden")
+                this.elements[i].classList.add("row-item")
                 this.moveIndex = i
             }
         }
@@ -48,8 +52,10 @@ class Player {
         }
     
         this.elements[this.moveIndex].classList.add("hidden")
+        this.elements[this.moveIndex].classList.remove("row-item")
         this.moveIndex--
         this.elements[this.moveIndex].classList.remove("hidden")
+        this.elements[this.moveIndex].classList.add("row-item")
     }
 
     moveDown = () => {
@@ -58,8 +64,10 @@ class Player {
         }
     
         this.elements[this.moveIndex].classList.add("hidden")
+        this.elements[this.moveIndex].classList.remove("row-item")
         this.moveIndex++
         this.elements[this.moveIndex].classList.remove("hidden")
+        this.elements[this.moveIndex].classList.add("row-item")
     }
 }
 
@@ -71,11 +79,11 @@ class Zombie {
     }
 
     setup = (randomQuestion, currentLevel) => {
-        this.element.querySelector("p").innerText = `${randomQuestion.firstNumber}x${randomQuestion.secondNumber}=${randomQuestion.answer}`
+        this.element.querySelector("p").innerText = `${randomQuestion.firstNumber}x${randomQuestion.secondNumber}=?`
         this.element.querySelector("img").src = `assets/img/level-${currentLevel}/zombie-${this.index + 1}.png`
 
         const moveZombie = () => {
-            if (pos === visualViewport.width - visualViewport.width * 0.10) {
+            if (pos === screenEnd) {
                 console.log("end reached " + pos)
                 this.stopMove()
                 gameOver(false)
@@ -183,7 +191,7 @@ const nextLevel = () => {
 }
 
 const setupLevel = () => {
-    document.querySelector("#level-container").style.backgroundImage = `url('/assets/img/level-${currentLevel}/background.jpg')`
+    document.querySelector("#level-container").style.backgroundImage = `url('./assets/img/level-${currentLevel}/background.jpg')`
     currentLevelText.innerText = `Level ${currentLevel}/${MAX_LEVEL}`
     setupZombies()
     player.setup()
@@ -230,5 +238,10 @@ const onKeyDown = (e) => {
     }
 }
 
+const onWindowResize = () => {
+    screenEnd = visualViewport.width
+}
+
 window.addEventListener("load", main)
+window.addEventListener('resize', onWindowResize);
 document.querySelector("body").addEventListener("keydown", onKeyDown)
