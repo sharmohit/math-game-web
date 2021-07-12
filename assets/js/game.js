@@ -5,6 +5,7 @@ const MAX_FIRST_NUM = 15
 const MAX_SECOND_NUM = 10
 const MAX_GAME_TIME = 60
 
+let backgroundMusic
 let screenEnd
 let currentLevel
 let correctRow
@@ -14,11 +15,12 @@ let remainingTime = MAX_GAME_TIME
 const levelContainer = document.querySelector("#level-container")
 const playerElements = document.querySelectorAll(".player")
 const zombieElements = document.querySelectorAll(".zombie")
+const resultUI = document.querySelector("#result")
 
 let remainingTimeText = document.querySelector("#remaining-time")
 let currentLevelText = document.querySelector("#hud-items > p")
-let resultUI = document.querySelector("#result")
 let timerInterval
+let hasUserClicked = false
 
 let player = null
 let questionGenerator = null
@@ -43,6 +45,12 @@ class Player {
                 this.elements[i].classList.add("row-item")
                 this.moveIndex = i
             }
+        }
+    }
+
+    updateAnswer = () => {
+        for (let i = 0; i < this.elements.length; i++) {
+            this.elements[i].querySelector("p").innerText = answer
         }
     }
 
@@ -79,7 +87,7 @@ class Zombie {
     }
 
     setup = (randomQuestion, currentLevel) => {
-        this.element.querySelector("p").innerText = `${randomQuestion.firstNumber}x${randomQuestion.secondNumber}=?`
+        this.updateQuestion(randomQuestion)
         this.element.querySelector("img").src = `assets/img/level-${currentLevel}/zombie-${this.index + 1}.png`
 
         const moveZombie = () => {
@@ -96,6 +104,10 @@ class Zombie {
         let pos = this.element.style.left
         let randSpeed = Math.floor(Math.random() * (MAX_SPEED - MIN_SPEED) + MIN_SPEED)
         this.moveInterval = setInterval(moveZombie, randSpeed)
+    }
+
+    updateQuestion = (question) => {
+        this.element.querySelector("p").innerText = `${question.firstNumber}x${question.secondNumber}=?`
     }
 
     stopMove = () => {
@@ -175,9 +187,33 @@ const updateRemainingTime = () => {
     }
 }
 
+const regenerateQuestions = () => {
+    const randomZombieIndex = Math.floor(Math.random() * zombieList.length)
+    questionList.length = 0
+    for (let i = 0; i < zombieList.length; i++) {
+        let randomQuestion = questionGenerator.createRandomQuestion()
+
+        if (questionList.length === 0) {
+            questionList.push(randomQuestion)
+        } else {
+            addUniqueQuestion(randomQuestion)
+        }
+
+        zombieList[i].updateQuestion(questionList[i])
+
+        if (i === randomZombieIndex) {
+            correctRow = i
+            answer = questionList[i].answer
+        }
+    }
+    player.updateAnswer()
+}
+
 const checkAnswer = () => {
     if (correctRow === player.moveIndex) {
         nextLevel()
+    } else {
+        regenerateQuestions()
     }
 }
 
@@ -205,22 +241,36 @@ const createZombies = () => {
 }
 
 const gameOver = (isWon) => {
+    backgroundMusic.pause()
     for (let i = 0; i < zombieList.length; i++) {
         zombieList[i].stopMove()
     }
 
+    let gameOverAudio = null
     if (isWon) {
         document.getElementById("game-over-text").innerText = "YOU WON"
+        gameOverAudio = new Audio("assets/audio/complete.ogg")
     } else {
         document.getElementById("game-over-text").innerText = "YOU LOSE"
+        gameOverAudio = new Audio("assets/audio/lose.ogg")
     }
 
+    gameOverAudio.play()
     resultUI.classList.remove("hidden")
     clearInterval(timerInterval)
     document.querySelector("body").removeEventListener("keydown", onKeyDown)
 }
 
+const startBackgroundMusic = () => {
+    backgroundMusic.play()
+}
+
 const init = () => {
+    backgroundMusic = new Audio(`assets/audio/music-level-${Math.floor(Math.random() * MAX_LEVEL) + 1}.ogg`)
+    backgroundMusic.loop = true
+    if (hasUserClicked) {
+        backgroundMusic.play()
+    }
     document.querySelector("body").addEventListener("keydown", onKeyDown)
     screenEnd = visualViewport.width
     currentLevel = 1
@@ -255,12 +305,18 @@ const onWindowResize = () => {
 }
 
 const onPlayAgain = () => {
-    console.log("Play Again")
     resultUI.classList.add("hidden")
     init()
     setupLevel()
 }
 
+const onWindowClick = () => {
+    hasUserClicked = true
+    window.removeEventListener("click", onWindowClick)
+    backgroundMusic.play()
+}
+
 window.addEventListener("load", main)
-window.addEventListener('resize', onWindowResize);
+window.addEventListener("resize", onWindowResize)
+window.addEventListener("click", onWindowClick)
 document.getElementById("play-again-btn").addEventListener("click", onPlayAgain)
