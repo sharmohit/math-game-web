@@ -17,57 +17,41 @@
 
     <script type="text/javascript" src="assets/js/app.js"></script>
 
-    <img class ="main-img" src="assets/img/background1.jpeg" alt="Background Image";/>
 
     <div class="popup" id="popup-1">
         <div class="overlay"></div>
         <div class="content">
           <div class="close-btn" onclick="togglePopup()">×</div>
-          <h1>Game Rules </h1>
+          <h2>Game Rules </h2>
           <br>
           <br>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo aspernatur laborum rem sed laudantium excepturi veritatis voluptatum architecto, dolore quaerat totam officiis nisi animi accusantium alias inventore nulla atque debitis.</p>
         </div>
       </div>
 
-
       <div class="table centered">
         <div class='cell'>
-            <form id="login" action="index.html">
+            <form id="login" action="game.html">
                 <h1> ZOMBIE MATH GAME </h1>
                 <br />
                 <br />
                 <h3 > Enter Player Name </h2>
                 <br />
-                <input type="text" name="name" size="38" maxlength="18" />
+                <input type="text" id = "txt" class="mytext" name="name" size="38" maxlength="18" />
                 <br />
                 <br />
-                <input class="button" type="button" onclick="location.href='game.html';" value="Start Game" />
-                <br /> 
-
-                <button class="button" > High Score </button>  
-
-                <br>
-                <br>
-
-                <audio id='audio' controls>
-                  <source src= "assets/mp3/melodyloops-preview-robotic-dreams-3m30s.mp3"
-                  type="audio/mpeg">
-              </audio>
-              <br>
-
+                <input class="button" type="submit" onclick="passvalues();location.href='game.html';" value="Start Game" />
             </form>
 
+            <button class="highScoreButton" > High Score </button>  
             <button class="buttonPop" onclick="togglePopup()">View Rules</button>
+        
+            <audio id="testAudio"  src="assets/mp3/melodyloops-preview-robotic-dreams-3m30s.mp3" type="audio/mpeg">
+            </audio>
             
+            <button  id="playAudio" class="audiomp3" onclick="playMe()">Play &#9658</button>
         </div>
     </div>
-
-    <audio id="testAudio" hidden src="assets/mp3/melodyloops-preview-robotic-dreams-3m30s.mp3" type="audio/mpeg">
-    </audio>
-    
-    <button  id="playAudio" class="audiomp3" onclick="playMe()">Play &#9658</button>
-     
 
 </body>
 </html>

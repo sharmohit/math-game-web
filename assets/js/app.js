@@ -1,12 +1,21 @@
 
 
+
+function passvalues () {
+  var firstname = document.getElementById("txt").value;
+  localStorage.setItem("textvalue",firstname);
+  return false;
+}
+
+
 function togglePopup(){
     document.getElementById("popup-1").classList.toggle("active");
   }
 
 
-function playMe(){
-    var audio = document.getElementById('testAudio');
+function playMe () {
+
+  var audio = document.getElementById('testAudio');
 
     if(this.className == 'is-playing'){
       this.className = "";

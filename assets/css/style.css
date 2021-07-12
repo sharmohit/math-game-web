@@ -5,12 +5,7 @@
 }
 
 body {
-    height:100%;
-    width:100%;
-    margin:0;
-    padding:0;
-    background-image: src="assets/img/background1.jpeg";
-    background-color: #cccccc;
+    background: url("https://store-images.s-microsoft.com/image/apps.4851.68871528329885281.e03a829d-faa0-4a31-a5d8-785bb8b52288.f024a10d-396d-4f40-b63c-899ef8a8cb04?mode=scale&q=90&h=1080&w=1920");
   }
 
   .main-img {
@@ -30,10 +25,12 @@ body {
   }
 
 .table {
+  background-color: #222;
+    opacity: 0.9;
     display:table;
     text-align:center;
-    width:100%;
-    height:100%;
+    width:50%;
+    height:50%;
     table-layout:fixed;
 }
 .cell {
@@ -49,6 +46,11 @@ input {
     margin-bottom:15px;
 }
 
+.mytext {
+  width: 300px;
+  font-size: 25px;
+}
+
 .button {
   background-color: #4CAF50; /* Green */
   border: none;
@@ -56,10 +58,35 @@ input {
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
+  cursor: pointer;
   display: inline-block;
   font-size: 16px;
 }
 
+h1{
+  color: #4CAF50;
+  font-size: 50px;
+  background-color: #222;
+}
+
+h3{
+  font-size: 40px;
+}
+
+.highScoreButton {
+  position:absolute;
+  top:20%;
+  left:90%;
+  background: linear-gradient(to right bottom, #273c75, #222);
+  background-color: white;
+  color: white;
+  cursor: pointer;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 
 
 /* Popup Start */
@@ -81,8 +108,8 @@ input {
   transform:translate(-50%,-50%) scale(0);
   background:#fff;
   width:95%;
-  max-width:500px;
-  height:250px;
+  max-width:1000px;
+  height:450px;
   z-index:2;
   text-align:center;
   padding:20px;
@@ -116,15 +143,19 @@ input {
 }
  
 .buttonPop {
+  background: linear-gradient(to right bottom, #273c75, #222);
   position:absolute;
-  bottom:10%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  padding:15px;
-  font-size:18px;
-  color:#222;
-  text-transform:uppercase;
-  font-weight:600;
+  top:35%;
+  left:90%;
+  padding: 15px 32px;
+  cursor: pointer;
+  /* transform:translate(-50%,-50%); */
+  background-color: white;
+  color:white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 /* popup ends  */
@@ -133,17 +164,16 @@ input {
 /* audio */
 
 .audiomp3{
-  padding: 10px 25px;
+  position:absolute;
+  top:5%;
+  left:90%;
+  padding: 10px;
   font-size: 22px;
-  line-height: 40px;
   min-width: 150px;
   text-align: center;
   cursor: pointer;
-  background: linear-gradient(to right bottom, #273c75, #079992);
+  background: linear-gradient(to right bottom, #273c75, #222);
   color: #fff;
-  border-radius: 5px;
-  border: 0px;
-  height: 60px;
-
+  border: px;
 }
   
