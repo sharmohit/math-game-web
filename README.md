@@ -113,3 +113,10 @@ This page must allow the user to return to the WELCOME SCREEN.
   - [x] Implement game mechanics
   - [x] Implement game levels
   - [x] Implement game win/lose conditions
+  - [x] Implememt game audio
+  - [ ] Store player high score in local storage
+
+- [ ] 4. Create High Score Screen @JavteshSinghBhullar(101348129)
+  - [ ] Design high score screen
+  - [ ] Fetch high score from local storage
+  - [ ] Display high scores
