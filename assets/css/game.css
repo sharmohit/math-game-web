@@ -2,12 +2,28 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 p {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.7); /*102, 83, 147*/
+    color: rgb(102, 83, 147);
     padding: 5px;
+    border-radius: 5px;
+}
+
+button {
+    cursor: pointer;
+    color: rgb(102, 83, 147);
+    border: 1px solid rgb(102, 83, 147);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgb(102, 83, 147);
+    color: #ffffff;
+    border: 1px solid #ffffff;
 }
 
 main {
@@ -15,7 +31,7 @@ main {
 }
 
 .hidden {
-    display:none;
+    display: none;
 }
 
 .align-middle {
@@ -27,24 +43,46 @@ main {
     overflow: hidden;
 }
 
-.result {
-    z-index: 1;
-    width: 100%;
-    height: auto;
+#result {
+    width: 100vw;
+    height: 100vh;
     color: yellow;
     text-align: center;
 }
 
+.overlay {
+    z-index: 1;
+    position: fixed;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.pop-up {
+    display: flex;
+    flex-flow: column;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 15px;
+    align-items: center;
+    width: 50%;
+    height: auto;
+    border: 1px solid rgb(102, 83, 147);
+    border-radius: 5px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
 #level-container {
-    /* border: 2px solid red; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    width: 100vw;
     height: 100vh;
 }
 
 #hud-items {
-    /* border: 2px solid black; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -54,19 +92,22 @@ main {
 }
 
 .zombie-container {
-    /* border: 2px solid violet; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding-left: 10px;
-    padding-right: 90px;
-    /* zoom: 0.2; */
+    padding-right: 8vw;
+    width: 100%;
+    height: auto;
 }
 
 .row-item {
-    /* border: 2px solid springgreen; */
+    display: flex;
+    flex-direction: column;
     color: #ffffff;
+    justify-content: center;
     text-align: center;
+    height: auto;
 }
 
 .row-item img {
@@ -76,10 +117,10 @@ main {
 
 #level-container{
     position: relative;
-    background-image: url('/assets/img/level-1/background.jpg');
+    background-image: src="assets/img/level-1/background.jpg";
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: contain;
+    background-size: cover;
     padding: 10px;
 }
 

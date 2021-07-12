@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/assets/img/favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" href="assets/img/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
     <link type="text/css" rel="stylesheet" href="assets/css/game.css">
     <title>Math vs Zombies</title>
 </head>
 <body>
     <main>
-        <div class="result align-middle">
-            <h1 class="hidden">Game Over</h1>
+        <div id="result" class="overlay hidden">
+            <div class="pop-up">
+                <h1>Game Over</h1>
+                <h2 id="game-over-text">You Lose</h2>
+                <button id="play-again-btn">Play Again</button>
+                <button id="high-score-btn">View High Score</button>
+            </div>
         </div>
         <div id="level-container">
             <div id="hud-container">
