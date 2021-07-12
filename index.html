@@ -4,24 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/assets/img/favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+
     <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Creepster&display=swap" rel="stylesheet">
+ 
     <title>Math vs Zombies</title>
+
+    
 </head>
 <body>
 
     <script type="text/javascript" src="assets/js/app.js"></script>
 
-    <img class ="main-img" src="assets/img/background1.jpeg" alt="Background Image";/>
 
     <div class="popup" id="popup-1">
         <div class="overlay"></div>
         <div class="content">
           <div class="close-btn" onclick="togglePopup()">×</div>
-          <h1>Game Rules </h1>
+          <h2>Game Rules </h2>
           <br>
           <br>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo aspernatur laborum rem sed laudantium excepturi veritatis voluptatum architecto, dolore quaerat totam officiis nisi animi accusantium alias inventore nulla atque debitis.</p>
@@ -30,27 +42,27 @@
 
       <div class="table centered">
         <div class='cell'>
-            <form id="login" action="index.html">
-                <h1> ZOMBIE MATH GAME </h1>
+            <form id="login" action="game.html">
+                <h1> Math vs Zombies </h1>
                 <br />
                 <br />
                 <h3 > Enter Player Name </h2>
                 <br />
-                <input type="text" name="name" size="38" maxlength="18" />
+                <input type="text" id = "txt" class="mytext" name="name" size="38" maxlength="18" />
                 <br />
                 <br />
-                <input class="button" type="button" onclick="location.href='game.html';" value="Start Game" />
-                <br /> 
-                <!-- <button class="button" onclick="togglePopup()" > View Rules </button> -->
-
-                <button class="button" > High Score </button>
-                
+                <input class="button" type="submit" onclick="passvalues();location.href='game.html';" value="Start Game" />
             </form>
+
+            <button class="highScoreButton" > High Score </button>  
             <button class="buttonPop" onclick="togglePopup()">View Rules</button>
+        
+            <audio id="testAudio"  src="assets/audio/music-main-menu.ogg" type="audio/ogg">
+            </audio>
+            
+            <button  id="playAudio" class="audiomp3" onclick="playMe()">Play &#9658</button>
         </div>
     </div>
-
-      <script type = "text/javascript" src = "app".js> </scripttype></script>
 
 </body>
 </html>

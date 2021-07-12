@@ -5,20 +5,8 @@
 }
 
 body {
-    height:100%;
-    width:100%;
-    margin:0;
-    padding:0;
-    background-image: src="assets/img/background1.jpeg";
+    background: url("https://store-images.s-microsoft.com/image/apps.4851.68871528329885281.e03a829d-faa0-4a31-a5d8-785bb8b52288.f024a10d-396d-4f40-b63c-899ef8a8cb04?mode=scale&q=90&h=1080&w=1920");
   }
-
-  .main-img {
-    padding: 0;
-    display: block;
-    margin: 0 auto;
-    max-height: 100%;
-    width: 100%;
-}
 
   .centered {
     color: white;
@@ -29,10 +17,13 @@ body {
   }
 
 .table {
+  background-color: #222;
+    opacity: 0.9;
     display:table;
     text-align:center;
-    width:100%;
-    height:100%;
+    width:50%;
+    height:50%;
+    border-radius: 40px;
     table-layout:fixed;
 }
 .cell {
@@ -48,16 +39,37 @@ input {
     margin-bottom:15px;
 }
 
+.mytext {
+  width: 300px;
+  font-size: 25px;
+  border-radius: 20px;
+}
+
 .button {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
+  border-radius: 20px;
   text-align: center;
   text-decoration: none;
+  cursor: pointer;
   display: inline-block;
   font-size: 16px;
 }
+
+h1{
+  color: #4CAF50;
+  font-family: 'Creepster', cursive;
+  font-size: 80px;
+  background-color: #222;
+}
+
+h3{
+  font-size: 60px;
+  font-family: 'Amatic SC', cursive;
+}
+
 
 
 
@@ -80,8 +92,9 @@ input {
   transform:translate(-50%,-50%) scale(0);
   background:#fff;
   width:95%;
-  max-width:500px;
-  height:250px;
+  border-radius: 20px;
+  max-width:1000px;
+  height:450px;
   z-index:2;
   text-align:center;
   padding:20px;
@@ -113,19 +126,57 @@ input {
   transition:all 300ms ease-in-out;
   transform:translate(-50%,-50%) scale(1);
 }
+
+.highScoreButton {
+  position:absolute;
+  top:20%;
+  left:90%;
+  background: linear-gradient(to right bottom, #273c75, #222);
+  background-color: white;
+  color: white;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
  
 .buttonPop {
+  background: linear-gradient(to right bottom, #273c75, #222);
   position:absolute;
-  bottom:10%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  padding:15px;
-  font-size:18px;
-  color:#222;
-  text-transform:uppercase;
-  font-weight:600;
+  top:35%;
+  left:90%;
+  padding: 15px 32px;
+  cursor: pointer;
+  border-radius: 20px;
+  /* transform:translate(-50%,-50%); */
+  background-color: white;
+  color:white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 /* popup ends  */
 
+
+/* audio */
+
+.audiomp3{
+  position:absolute;
+  top:5%;
+  left:90%;
+  padding: 10px;
+  font-size: 22px;
+  min-width: 150px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 20px;
+  background: linear-gradient(to right bottom, #273c75, #222);
+  color: #fff;
+  border: px;
+}
   
