@@ -5,13 +5,6 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-p {
-    background-color: rgba(255, 255, 255, 0.7); /*102, 83, 147*/
-    color: rgb(102, 83, 147);
-    padding: 5px;
-    border-radius: 5px;
-}
-
 button {
     cursor: pointer;
     color: rgb(102, 83, 147);
@@ -46,25 +39,21 @@ main {
 #result {
     width: 100vw;
     height: 100vh;
-    color: yellow;
     text-align: center;
 }
 
 .overlay {
     z-index: 1;
     position: fixed;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.6);
 }
 
 .pop-up {
-    display: flex;
-    flex-flow: column;
     background-color: rgba(255, 255, 255, 0.7);
-    padding: 15px;
-    align-items: center;
-    width: 50%;
-    height: auto;
-    border: 1px solid rgb(102, 83, 147);
+    padding: 30px 15px;
+    max-width: 500px;
+    width: 100%;
+    border: 5px solid rgb(102, 83, 147);
     border-radius: 5px;
     margin: 0;
     position: absolute;
@@ -72,7 +61,14 @@ main {
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.pop-up * {
+    margin: 5px;
+}
+.pop-up h2 {
+    color: #ff0;
 }
 
 #level-container {
@@ -80,9 +76,24 @@ main {
     flex-direction: column;
     width: 100vw;
     height: 100vh;
+    justify-content: center;
+    position: relative;
+    background-image: src="assets/img/level-1/background.jpg";
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 10px;
 }
 
-#hud-items {
+.hud-item {
+    /* border: 2px solid rgb(102, 83, 147); */
+    background-color: rgba(255, 255, 255, 0.7); /*102, 83, 147*/
+    color: rgb(102, 83, 147);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#hud-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -112,16 +123,7 @@ main {
 
 .row-item img {
     width: auto;
-    height: 100px;
-}
-
-#level-container{
-    position: relative;
-    background-image: src="assets/img/level-1/background.jpg";
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    padding: 10px;
+    height: 14vh;
 }
 
 #player-img {
@@ -131,4 +133,14 @@ main {
     height: 150px;
     top: 50%;
     left: 70%;
+}
+
+/**
+ * Media Queries
+ **/
+
+@media (max-width: 480px) {
+    .pop-up {
+        max-width: 320px;
+    }
 }

@@ -1,32 +1,41 @@
+//#region Constants
 const MAX_LEVEL = 5
 const MAX_SPEED = 11
 const MIN_SPEED = 22
 const MAX_FIRST_NUM = 15
 const MAX_SECOND_NUM = 10
 const MAX_GAME_TIME = 60
+const MAX_HIGH_SCORE_LENGTH = 5
+const HIGH_SCORE_KEY = "math-game-highscore"
+//#endregion
 
+//#region Variables
 let backgroundMusic
 let screenEnd
 let currentLevel
 let correctRow
 let answer
 let remainingTime = MAX_GAME_TIME
+let timerInterval
+let hasUserClicked = false
+let player = null
+let questionGenerator = null
+let questionList = []
+let zombieList = []
+let zombieRandomImageIndexList = []
+const playerName = location.search.slice(location.search.indexOf("=") + 1, location.search.length).replaceAll("+", " ")
+//#endregion
 
+//#region Query Selectors
 const levelContainer = document.querySelector("#level-container")
 const playerElements = document.querySelectorAll(".player")
 const zombieElements = document.querySelectorAll(".zombie")
 const resultUI = document.querySelector("#result")
+let remainingTimeText = document.getElementById("remaining-time")
+let currentLevelText = document.getElementById("level-hud")
+//#endregion
 
-let remainingTimeText = document.querySelector("#remaining-time")
-let currentLevelText = document.querySelector("#hud-items > p")
-let timerInterval
-let hasUserClicked = false
-
-let player = null
-let questionGenerator = null
-let questionList = new Array()
-let zombieList = new Array()
-
+//#region Classes
 class Player {
     constructor(name, elements) {
         this.moveIndex
@@ -88,7 +97,26 @@ class Zombie {
 
     setup = (randomQuestion, currentLevel) => {
         this.updateQuestion(randomQuestion)
-        this.element.querySelector("img").src = `assets/img/level-${currentLevel}/zombie-${this.index + 1}.png`
+
+        const getUniqueImageIndex = (randomIndex) => {
+            let hasImageIndex = false
+            for (let i = 0; i < zombieRandomImageIndexList.length; i++) {
+                if (randomIndex === zombieRandomImageIndexList[i]) {
+                    hasImageIndex = true
+                    break
+                }
+            }
+
+            if (hasImageIndex) {
+                return getUniqueImageIndex(Math.floor(Math.random() * zombieList.length) + 1)
+            } else {
+                zombieRandomImageIndexList.push(randomIndex)
+                return randomIndex
+            }
+        }
+
+        let randomImageIndex = Math.floor(Math.random() * zombieList.length) + 1
+        this.element.querySelector("img").src = `assets/img/level-${currentLevel}/zombie-${getUniqueImageIndex(randomImageIndex)}.png`
 
         const moveZombie = () => {
             if (pos === screenEnd) {
@@ -139,6 +167,15 @@ class QuestionGenerator {
     }
 }
 
+class HighScore {
+    constructor(playerName, currentLevel) {
+        this.playerName = playerName
+        this.level = currentLevel
+    }
+}
+//#endregion
+
+//#region Questions Generation
 const addUniqueQuestion = (randomQuestion) => {
     let isExist = false
     for (let i = 0; i < questionList.length; i++) {
@@ -153,37 +190,6 @@ const addUniqueQuestion = (randomQuestion) => {
         questionList.push(randomQuestion)
     } else {
         addUniqueQuestion(questionGenerator.createRandomQuestion())
-    }
-}
-
-const setupZombies = () => {
-    const randomZombieIndex = Math.floor(Math.random() * zombieList.length)
-    questionList.length = 0
-    for (let i = 0; i < zombieList.length; i++) {
-        zombieList[i].stopMove()
-        let randomQuestion = questionGenerator.createRandomQuestion()
-
-        if (questionList.length === 0) {
-            questionList.push(randomQuestion)
-        } else {
-            addUniqueQuestion(randomQuestion)
-        }
-
-        zombieList[i].setup(questionList[i], currentLevel)
-
-        if (i === randomZombieIndex) {
-            correctRow = i
-            answer = questionList[i].answer
-        }
-    }
-}
-
-const updateRemainingTime = () => {
-    remainingTime-- 
-    remainingTimeText.innerText = remainingTime
-
-    if (remainingTime == 0) {
-        gameOver(false)
     }
 }
 
@@ -208,6 +214,56 @@ const regenerateQuestions = () => {
     }
     player.updateAnswer()
 }
+//#endregion
+
+//#region Level Setup
+const createZombies = () => {
+    for (let i = 0; i < zombieElements.length; i++) {
+        let zombie = new Zombie(i, zombieElements[i])
+        zombieList.push(zombie)
+    }
+}
+
+const setupZombies = () => {
+    const randomZombieIndex = Math.floor(Math.random() * zombieList.length)
+    questionList.length = 0
+    zombieRandomImageIndexList.length = 0
+    for (let i = 0; i < zombieList.length; i++) {
+        zombieList[i].stopMove()
+        let randomQuestion = questionGenerator.createRandomQuestion()
+
+        if (questionList.length === 0) {
+            questionList.push(randomQuestion)
+        } else {
+            addUniqueQuestion(randomQuestion)
+        }
+
+        zombieList[i].setup(questionList[i], currentLevel)
+
+        if (i === randomZombieIndex) {
+            correctRow = i
+            answer = questionList[i].answer
+        }
+    }
+}
+
+const setupLevel = () => {
+    document.querySelector("#level-container").style.backgroundImage = `url('./assets/img/level-${currentLevel}/background.jpg')`
+    currentLevelText.innerText = `Level ${currentLevel}/${MAX_LEVEL}`
+    setupZombies()
+    player.setup()
+}
+//#endregion
+
+//#region Game Win/Lose Conditions
+const updateRemainingTime = () => {
+    remainingTime-- 
+    remainingTimeText.innerText = remainingTime
+
+    if (remainingTime == 0) {
+        gameOver(false)
+    }
+}
 
 const checkAnswer = () => {
     if (correctRow === player.moveIndex) {
@@ -225,20 +281,93 @@ const nextLevel = () => {
         gameOver(true)
     }
 }
+//#endregion
 
-const setupLevel = () => {
-    document.querySelector("#level-container").style.backgroundImage = `url('./assets/img/level-${currentLevel}/background.jpg')`
-    currentLevelText.innerText = `Level ${currentLevel}/${MAX_LEVEL}`
-    setupZombies()
-    player.setup()
-}
-
-const createZombies = () => {
-    for (let i = 0; i < zombieElements.length; i++) {
-        let zombie = new Zombie(i, zombieElements[i])
-        zombieList.push(zombie)
+//#region Save/Load HighScore
+const getHighScore = () => {
+    if (HIGH_SCORE_KEY in localStorage) {
+        return JSON.parse(localStorage.getItem(HIGH_SCORE_KEY));
+    } else {
+        return null
     }
 }
+
+const moveHighScore = (highScoreList, startIndex, finalIndex) => {
+    let highScore = highScoreList[startIndex]
+    for (let i = startIndex - 1; i >= finalIndex; i--) {
+        highScoreList[i + 1] = highScoreList[i]
+    }
+    highScoreList[finalIndex] = highScore
+}
+
+const updateHighScore = () => {
+    let highScoreList = getHighScore()
+
+    if (highScoreList === null) {
+        highScoreList = []
+        highScoreList.push(new HighScore(player.name, currentLevel))
+        localStorage.setItem(HIGH_SCORE_KEY, JSON.stringify(highScoreList))
+    } else {
+        let highScoreLength = highScoreList.length
+
+        let playerRankIndex = -1
+        const checkPlayerExist = (highScore, index) => {
+            if (player.name === highScore.playerName) {
+                playerRankIndex = index
+                return true
+            }
+            return false
+        }
+
+        if (highScoreList.some(checkPlayerExist)) {
+            if (playerRankIndex > 0) {
+                if (currentLevel >= highScoreList[playerRankIndex].level) {
+                    highScoreList[playerRankIndex].level = currentLevel
+                    for (let i = 0; i < playerRankIndex; i++ ) {
+                        if (currentLevel >= highScoreList[i].level) {
+                            moveHighScore(highScoreList, playerRankIndex, i)
+                            break
+                        }
+                    }
+                    localStorage.setItem(HIGH_SCORE_KEY, JSON.stringify(highScoreList))
+                }
+            } else if (playerRankIndex == 0) {
+                if (currentLevel > highScoreList[playerRankIndex].level) {
+                    highScoreList[playerRankIndex].level = currentLevel
+                    localStorage.setItem(HIGH_SCORE_KEY, JSON.stringify(highScoreList))
+                }
+            }
+        } else {
+            if (highScoreLength < 5) {
+                highScoreList.push(new HighScore(player.name, currentLevel))
+                highScoreLength = highScoreList.length
+
+                for (let i = 0; i < highScoreLength; i++ ) {
+                    if (currentLevel >= highScoreList[i].level) {
+                        moveHighScore(highScoreList, highScoreLength - 1, i)
+                        break
+                    } else {
+                    }
+                }
+            } else {
+                for (let i = 0; i < highScoreLength; i++ ) {
+                    if (currentLevel >= highScoreList[i].level) {
+                        highScoreList.splice(i, 0, new HighScore(player.name, currentLevel))
+                        highScoreLength = highScoreList.length
+                        break
+                    }
+                }
+            }
+
+            if (highScoreLength > 5) {
+                highScoreList.splice(MAX_HIGH_SCORE_LENGTH, highScoreLength)
+            }
+
+            localStorage.setItem(HIGH_SCORE_KEY, JSON.stringify(highScoreList))
+        }
+    }
+}
+//#endregion
 
 const gameOver = (isWon) => {
     backgroundMusic.pause()
@@ -259,10 +388,8 @@ const gameOver = (isWon) => {
     resultUI.classList.remove("hidden")
     clearInterval(timerInterval)
     document.querySelector("body").removeEventListener("keydown", onKeyDown)
-}
-
-const startBackgroundMusic = () => {
-    backgroundMusic.play()
+    updateHighScore()
+    console.log("Score: Player Name: " + player.name + " Level: " + currentLevel)
 }
 
 const init = () => {
@@ -283,13 +410,19 @@ const init = () => {
 }
 
 const main = () => {
+    if (playerName === "") {
+        window.location.replace("index.html")
+        return
+    }
+
     questionGenerator = new QuestionGenerator(MAX_FIRST_NUM, MAX_SECOND_NUM)
-    player = new Player("Dummy", playerElements)
+    player = new Player(playerName, playerElements)
     init()
     createZombies()
     setupLevel()
 }
 
+//#region Callbacks Functions
 const onKeyDown = (e) => {
     if (e.keyCode == 38) {
         player.moveUp()
@@ -315,8 +448,11 @@ const onWindowClick = () => {
     window.removeEventListener("click", onWindowClick)
     backgroundMusic.play()
 }
+//#endregion
 
+//#region Event Listeners
 window.addEventListener("load", main)
 window.addEventListener("resize", onWindowResize)
 window.addEventListener("click", onWindowClick)
 document.getElementById("play-again-btn").addEventListener("click", onPlayAgain)
+//#endregion
