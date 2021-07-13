@@ -96,10 +96,10 @@ looks like this:
 This page must allow the user to return to the WELCOME SCREEN.
 ##
 ## Task Lists
-- [ ] 1. Project and Assets Setup @MohitSharma(101342267)
+- [x] 1. Project and Assets Setup @MohitSharma(101342267)
   - [x] Create basic project
   - [x] Search game assets(backgrounds, music, sound effects)
-  - [ ] Assets editing and correction (resizing, croping, triming)
+  - [x] Assets editing and correction (resizing, croping, triming)
   - [x] Group assets by levels
 
 - [ ] 2. Implement Welcome Screen @JavteshSinghBhullar(101348129)
@@ -114,7 +114,7 @@ This page must allow the user to return to the WELCOME SCREEN.
   - [x] Implement game levels
   - [x] Implement game win/lose conditions
   - [x] Implememt game audio
-  - [ ] Store player high score in local storage
+  - [x] Store player high score in local storage
 
 - [ ] 4. Create High Score Screen @JavteshSinghBhullar(101348129)
   - [ ] Design high score screen
