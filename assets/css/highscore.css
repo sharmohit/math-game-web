@@ -1,0 +1,90 @@
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+  body {
+    background: url("https://coolwallpapers.me/th700/5789043-plants-vs-zombies-hd-wallpapers.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 680px;
+  }
+
+h1{
+    font-size: 50px;
+    color: white;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn_reset{
+    position: absolute;
+    bottom: 10%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    background-color:#04AA6D ;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+}
+.btn_welcome{
+    position: absolute;
+    bottom: 10%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    background-color: #04AA6D; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+}
+
+  #highscore_table {
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-collapse: collapse;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  
+  #highscore_table td, #highscore_table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+
+  
+  #highscore_table tr:hover {background-color: #ddd;}
+  
+  #highscore_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #04AA6D;
+    color: white;
+  }
