@@ -6,7 +6,6 @@ const HIGH_SCORE_KEY = "math-game-highscore"
 
 let reset_data = document.getElementById("reset_data")
 
-
 reset_data.onclick = () => {
 
     console.log("Items deleted")
@@ -30,8 +29,6 @@ getHighScore = () => {
     }
 }
 
-
-
 buildTable = (data) => {
 
     let table = document.getElementById("myTable")
@@ -48,5 +45,3 @@ buildTable = (data) => {
 
 testList = JSON.parse(localStorage.getItem(HIGH_SCORE_KEY));
 buildTable(testList);
-
-

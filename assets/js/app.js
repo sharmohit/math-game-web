@@ -31,8 +31,3 @@ passvalues = () => {
     }
 }
 
-stopMove = () => {
-  clearInterval(this.moveInterval)
-}
-
-
