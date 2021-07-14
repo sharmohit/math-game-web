@@ -139,7 +139,7 @@ class Zombie {
     }
 
     updateQuestion = (question) => {
-        this.element.querySelector("p").innerText = `${question.firstNumber}x${question.secondNumber}=${question.answer}`
+        this.element.querySelector("p").innerText = `${question.firstNumber}x${question.secondNumber}=?`
     }
 
     stopMove = () => {
@@ -385,7 +385,7 @@ const getAudioPreference = () => {
     if (AUDIO_KEY in localStorage) {
         return localStorage.getItem(AUDIO_KEY);
     } else {
-        return false
+        return "false"
     }
 }
 //#endregion
