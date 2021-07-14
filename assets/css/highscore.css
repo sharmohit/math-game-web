@@ -7,30 +7,19 @@ body {
 
 h1{
     font-size: 50px;
-    color: honeydew;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    color: orange;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
-.btn_reset{
+/* .btn_reset{
     position: absolute;
     bottom: 10%;
     left: 60%;
     transform: translate(-50%, -50%);
-    background-color:orange;
-    background: linear-gradient(to right bottom, orange,purple);
-    border: none;
-    color: white;
     padding: 15px 32px;
-    border-radius: 20px;
     text-align: center;
-    text-decoration: none;
-    cursor: pointer;
     display: inline-block;
     font-size: 16px;
 }
@@ -39,37 +28,28 @@ h1{
     bottom: 10%;
     left: 40%;
     transform: translate(-50%, -50%);
-    background-color: orange;
-    background: linear-gradient(to right bottom, orange,purple);
-    border: none;
-    color: white;
     padding: 15px 32px;
-    border-radius: 20px;
     text-align: center;
     text-decoration: none;
-    cursor: pointer;
     display: inline-block;
     font-size: 16px;
-}
+} */
 
   #highscore_table {
-    font-family: Arial, Helvetica, sans-serif;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    color: darkslategray;
-    transform: translate(-50%, -50%);
+    color: white;
     border-collapse: collapse;
-    width: 40%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 40vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+    -webkit-text-stroke-width: 0.6px;
+    -webkit-text-stroke-color: black;
   }
 
   
   #highscore_table td, #highscore_table th {
-    border: 1px solid #ddd;
+    border: 1px solid black;
     padding: 8px;
     text-align: center;
+    background-color: rgba(162, 115, 72, 1);
   }
 
   
@@ -79,6 +59,29 @@ h1{
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: purple;
+    background-color: rgb(84, 45, 24);
     color: white;
+  }
+
+  #high-score-container {
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 10px;
+  }
+
+  #high-score-container * {
+    margin-bottom: 10px;
+  }
+
+  #button-container *{
+    margin-left: 10px;
   }
