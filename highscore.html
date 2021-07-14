@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+
+    <link type="text/css" rel="stylesheet" href="assets/css/highscore.css">
+
+    <title>High Score</title>
+
+</head>
+
+<body>
+
+    <h1> HIGH SCORE </h1>
+    <br>
+
+    <button class = "btn_welcome" onclick="location.href='index.html';">Return to home screen</button>
+    <br>
+    <br>
+    <button class = "btn_reset" type="button" id = "reset_data"> Reset all data </button>
+
+    <table id = "highscore_table">
+        <col style="width:70%">
+	    <col style="width:30%">
+        <tr>
+            <th>Name</th>
+            <th>Level</th>
+        </tr>
+
+        <tbody id = "myTable"></tbody>
+    </table>
+
+    <script type="text/javascript" src="assets/js/highscore.js"></script>
+</body>
+</html>
