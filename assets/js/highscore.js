@@ -1,13 +1,7 @@
-
-
-
 let testList = [] 
 
 
 const HIGH_SCORE_KEY = "math-game-highscore"
-
-console.log("Highscore JS page is ready")
-
 
 let reset_data = document.getElementById("reset_data")
 
