@@ -7,33 +7,10 @@ body {
     overflow: hidden;
   }
 
-  .centered {
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+#name_error {
+  color: orange;
+}
 
-.table {
-  background-color: #222;
-    opacity: 0.9;
-    display:table;
-    text-align:center;
-    width:50%;
-    height:50%;
-    border-radius: 40px;
-    table-layout:fixed;
-}
-.cell {
-    display:table-cell;
-    vertical-align:middle;
-}
-form {
-    display:inline-block;
-    width: 750px;
-    padding:50px 0;
-}
 input {
     margin-bottom:15px;
     color: rgb(114, 74, 215);
@@ -43,9 +20,9 @@ input {
 .start_game{
   cursor: pointer;
     color: #ffffff;
-    font-size: 30px;
-    background-color: rgb(114, 74, 215);
-    background-image: linear-gradient( rgb(114, 74, 215), rgb(68, 47, 104));
+    font-size: 28px;
+    background-color: orange;
+    background-image: linear-gradient(orange, rgb(203, 97, 47));
     border: 2px solid #ffffff;
     padding: 5px;
     border-radius: 5px;
@@ -61,16 +38,19 @@ input {
 
 button {
   font-size: 26px;
-  margin: 10px;
 }
+
 .main_image{
-  max-width: 500px;
-  max-height: 250px;
+  max-width: 380px;
+  height: auto;
 }
 
 
 h3{
-  font-size: 40px;
+  font-size: 28px;
+  color: white;
+  -webkit-text-stroke-width: 0.7px;
+  -webkit-text-stroke-color: black;
 }
 
 .sound{
@@ -108,10 +88,12 @@ h3{
   max-width:800px;
   height:450px;
   z-index:2;
-
+  border: 5px solid rgb(84, 45, 24);
   padding:60px;
   box-sizing:border-box;
   font-family:"Open Sans",sans-serif;
+  -webkit-text-stroke-width: 0.6px;
+  -webkit-text-stroke-color: black;
 }
  
 .popup .close-btn {
@@ -158,5 +140,37 @@ h3{
   border-radius: 20px;
   color: white;
   border: px;
+}
+
+#welcome-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+  padding: 25px 30px;
+  border-radius: 20px;
+}
+
+#welcome-container * {
+  margin-bottom: 15px;
+}
+
+#button-container *{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+@media (max-width: 420px) {
+  .main_image{
+    width: 300px;
+  }
 }
   

@@ -16,8 +16,6 @@
 </head>
 
 <body>
-
-    
     <div class="popup" id="popup-1">
         <div class="overlay"></div>
         <div class="content">
@@ -46,31 +44,25 @@
         </div>
     </div>
 
-    <div class="table centered">
-        <div class='cell'>
-            <form id="login" action="game.html">
-                <img class="main_image" src="assets/img/title.png" alt="Math vs Zombies">
-                <h3>Please Enter Your Name</h3>
-                    <br>
-                    <p id = "name_error"> </p>
-                    <br>
-                    <input type="text" id="txt" class="mytext" name="name" size="38" maxlength="18" required />
-                    <br>
-                    <br>
-                    <input class="start_game" type="submit" onclick="passvalues();"
-                        value="Start Game" />
-            </form>
-
+    <div id="welcome-container">
+        <img class="main_image" src="assets/img/title.png" alt="Math vs Zombies">
+        <form id="login" action="game.html">
+            <h3>Please Enter Your Name</h3>
+            <p id = "name_error"> </p>
+            <input type="text" id="txt" class="mytext" name="name" size="38" maxlength="18" required />
+        </form>
+        <input class="start_game" type="submit" onclick="passvalues();"
+        value="Start Game"/>
+        <div id="button-container">
             <button class="highScoreButton" onclick="location.href='highscore.html'" ;> High Score </button>
             <button class="buttonPop" onclick="togglePopup()">View Rules</button>
-
         </div>
     </div>
 
-    <audio id="testAudio" src="assets/audio/music-main-menu.ogg" type="audio/ogg">
+    <audio id="testAudio" class="hidden" src="assets/audio/music-main-menu.ogg" type="audio/ogg">
     </audio>
 
-    <button id="playAudio" class="audiomp3" onclick="playMe()">Play &#9658</button>
+    <button id="playAudio" class="audiomp3 hidden" onclick="playMe()">Play &#9658</button>
 
     <input id="home_audio" class="sound" type="image" onclick="playMe()" name="" src="assets/img/sound-off.png" alt="sound">  
 
