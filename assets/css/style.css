@@ -37,6 +37,8 @@ form {
 }
 input {
     margin-bottom:15px;
+    color: darkblue;
+    text-align: center;
 }
 
 .mytext {
@@ -46,7 +48,7 @@ input {
 }
 
 .button {
-  background-color: #4CAF50; /* Green */
+  background-color: orange;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -57,6 +59,10 @@ input {
   display: inline-block;
   font-size: 16px;
 }
+.main_image{
+  max-width: 500px;
+  max-height: 250px;
+}
 
 h1{
   color: #4CAF50;
@@ -64,13 +70,14 @@ h1{
   font-size: 80px;
   background-color: #222;
 }
+h2{
+  text-align: center;
+}
 
 h3{
   font-size: 60px;
   font-family: 'Amatic SC', cursive;
 }
-
-
 
 
 /* Popup Start */
@@ -91,13 +98,13 @@ h3{
   left:50%;
   transform:translate(-50%,-50%) scale(0);
   background:#fff;
-  width:95%;
+  width:90%;
   border-radius: 20px;
-  max-width:1000px;
+  max-width:800px;
   height:450px;
   z-index:2;
-  text-align:center;
-  padding:20px;
+
+  padding:60px;
   box-sizing:border-box;
   font-family:"Open Sans",sans-serif;
 }
@@ -131,7 +138,7 @@ h3{
   position:absolute;
   top:20%;
   left:90%;
-  background: linear-gradient(to right bottom, #273c75, #222);
+  background: linear-gradient(to right bottom, black, orange);
   background-color: white;
   color: white;
   cursor: pointer;
@@ -144,7 +151,7 @@ h3{
 }
  
 .buttonPop {
-  background: linear-gradient(to right bottom, #273c75, #222);
+  background: linear-gradient(to right bottom, black, orange);
   position:absolute;
   top:35%;
   left:90%;
@@ -175,7 +182,7 @@ h3{
   text-align: center;
   cursor: pointer;
   border-radius: 20px;
-  background: linear-gradient(to right bottom, #273c75, #222);
+  background: linear-gradient(to right bottom, black, orange);
   color: #fff;
   border: px;
 }
