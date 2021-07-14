@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+button {
+    cursor: pointer;
+    color: rgb(102, 83, 147);
+    border: 1px solid rgb(102, 83, 147);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgb(102, 83, 147);
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.hidden {
+    display: none;
+}

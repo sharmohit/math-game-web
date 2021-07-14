@@ -6,6 +6,7 @@ const MAX_FIRST_NUM = 15
 const MAX_SECOND_NUM = 10
 const MAX_GAME_TIME = 60
 const MAX_HIGH_SCORE_LENGTH = 5
+const SCREEN_WIDTH_OFFSET = 0.06
 const HIGH_SCORE_KEY = "math-game-highscore"
 //#endregion
 
@@ -15,6 +16,7 @@ let screenEnd
 let currentLevel
 let correctRow
 let answer
+let gameOverAudio
 let remainingTime = MAX_GAME_TIME
 let timerInterval
 let hasUserClicked = false
@@ -181,8 +183,7 @@ const addUniqueQuestion = (randomQuestion) => {
     for (let i = 0; i < questionList.length; i++) {
         if (randomQuestion.isEqual(questionList[i])) {
             isExist = true
-        } else {
-            isExist = false
+            break
         }
     }
 
@@ -193,8 +194,19 @@ const addUniqueQuestion = (randomQuestion) => {
     }
 }
 
-const regenerateQuestions = () => {
+const getRandomZombieIndex = () => {
     const randomZombieIndex = Math.floor(Math.random() * zombieList.length)
+
+    if (randomZombieIndex === player.moveIndex) {
+        console.log("Same as player row, regenerate zombie index")
+        getRandomZombieIndex()
+    } else {
+        return randomZombieIndex
+    }
+}
+
+const regenerateQuestions = () => {
+    const randomZombieIndex = getRandomZombieIndex()
     questionList.length = 0
     for (let i = 0; i < zombieList.length; i++) {
         let randomQuestion = questionGenerator.createRandomQuestion()
@@ -225,7 +237,7 @@ const createZombies = () => {
 }
 
 const setupZombies = () => {
-    const randomZombieIndex = Math.floor(Math.random() * zombieList.length)
+    const randomZombieIndex = getRandomZombieIndex()
     questionList.length = 0
     zombieRandomImageIndexList.length = 0
     for (let i = 0; i < zombieList.length; i++) {
@@ -375,7 +387,6 @@ const gameOver = (isWon) => {
         zombieList[i].stopMove()
     }
 
-    let gameOverAudio = null
     if (isWon) {
         document.getElementById("game-over-text").innerText = "YOU WON"
         gameOverAudio = new Audio("assets/audio/complete.ogg")
@@ -387,9 +398,8 @@ const gameOver = (isWon) => {
     gameOverAudio.play()
     resultUI.classList.remove("hidden")
     clearInterval(timerInterval)
-    document.querySelector("body").removeEventListener("keydown", onKeyDown)
+    window.removeEventListener("keydown", onKeyDown)
     updateHighScore()
-    console.log("Score: Player Name: " + player.name + " Level: " + currentLevel)
 }
 
 const init = () => {
@@ -398,8 +408,8 @@ const init = () => {
     if (hasUserClicked) {
         backgroundMusic.play()
     }
-    document.querySelector("body").addEventListener("keydown", onKeyDown)
-    screenEnd = visualViewport.width
+    window.addEventListener("keydown", onKeyDown)
+    screenEnd = visualViewport.width - Math.floor(visualViewport.width * SCREEN_WIDTH_OFFSET)
     currentLevel = 1
     correctRow = -1
     answer = 0
@@ -434,10 +444,11 @@ const onKeyDown = (e) => {
 }
 
 const onWindowResize = () => {
-    screenEnd = visualViewport.width
+    screenEnd = visualViewport.width - Math.floor(visualViewport.width * SCREEN_WIDTH_OFFSET)
 }
 
 const onPlayAgain = () => {
+    gameOverAudio.pause()
     resultUI.classList.add("hidden")
     init()
     setupLevel()
@@ -445,8 +456,14 @@ const onPlayAgain = () => {
 
 const onWindowClick = () => {
     hasUserClicked = true
-    window.removeEventListener("click", onWindowClick)
     backgroundMusic.play()
+    window.removeEventListener("click", onWindowClick)
+}
+
+const playBackgroundMusic = () => {
+    hasUserClicked = true
+    backgroundMusic.play()
+    window.removeEventListener("keydown", playBackgroundMusic)
 }
 //#endregion
 
@@ -454,5 +471,6 @@ const onWindowClick = () => {
 window.addEventListener("load", main)
 window.addEventListener("resize", onWindowResize)
 window.addEventListener("click", onWindowClick)
+window.addEventListener("keydown", playBackgroundMusic)
 document.getElementById("play-again-btn").addEventListener("click", onPlayAgain)
 //#endregion
