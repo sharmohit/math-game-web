@@ -102,11 +102,11 @@ This page must allow the user to return to the WELCOME SCREEN.
   - [x] Assets editing and correction (resizing, croping, triming)
   - [x] Group assets by levels
 
-- [ ] 2. Implement Welcome Screen @JavteshSinghBhullar(101348129)
+- [x] 2. Implement Welcome Screen @JavteshSinghBhullar(101348129)
   - [x] Create and implement player name Input
   - [x] Create and implement main menu buttons (START, VIEW RULES, HIGH SCORES)
   - [x] Create and implement view rules popup box
-  - [ ] Implement main menu background audio with music on/off button
+  - [x] Implement main menu background audio with music on/off button
 
 - [ ] 3. Implement Game Screen @MohitSharma(101342267)
   - [ ] Design game screen
@@ -116,7 +116,7 @@ This page must allow the user to return to the WELCOME SCREEN.
   - [x] Implememt game audio
   - [x] Store player high score in local storage
 
-- [ ] 4. Create High Score Screen @JavteshSinghBhullar(101348129)
-  - [ ] Design high score screen
-  - [ ] Fetch high score from local storage
-  - [ ] Display high scores
+- [x] 4. Create High Score Screen @JavteshSinghBhullar(101348129)
+  - [x] Design high score screen
+  - [x] Fetch high score from local storage
+  - [x] Display high scores
