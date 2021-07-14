@@ -410,7 +410,15 @@ const gameOver = (isWon) => {
     resultUI.classList.remove("hidden")
     clearInterval(timerInterval)
     window.removeEventListener("keydown", onKeyDown)
-    updateHighScore()
+    if (isWon) {
+        updateHighScore()
+        return
+    }
+
+    currentLevel--
+    if (currentLevel > 0) {
+            updateHighScore()
+    }
 }
 
 const init = () => {
