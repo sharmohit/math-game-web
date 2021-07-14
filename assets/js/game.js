@@ -139,7 +139,7 @@ class Zombie {
     }
 
     updateQuestion = (question) => {
-        this.element.querySelector("p").innerText = `${question.firstNumber}x${question.secondNumber}=?`
+        this.element.querySelector("p").innerText = `${question.firstNumber}x${question.secondNumber}=${question.answer}`
     }
 
     stopMove = () => {
@@ -404,7 +404,7 @@ const gameOver = (isWon) => {
         gameOverAudio = new Audio("assets/audio/lose.ogg")
     }
 
-    if (canPlayAudio === true) {
+    if (canPlayAudio === "true") {
         gameOverAudio.play()
     }
     resultUI.classList.remove("hidden")
@@ -416,7 +416,7 @@ const gameOver = (isWon) => {
 const init = () => {
     backgroundMusic = new Audio(`assets/audio/music-level-${Math.floor(Math.random() * MAX_LEVEL) + 1}.ogg`)
     backgroundMusic.loop = true
-    if (hasUserClicked && (canPlayAudio === true)) {
+    if (hasUserClicked && (canPlayAudio === "true")) {
         backgroundMusic.play()
     }
     window.addEventListener("keydown", onKeyDown)
@@ -431,10 +431,10 @@ const init = () => {
 }
 
 const main = () => {
-    if (playerName === "") {
-        window.location.replace("index.html")
-        return
-    }
+    // if (playerName === "") {
+    //     window.location.replace("index.html")
+    //     return
+    // }
     canPlayAudio = getAudioPreference()
     questionGenerator = new QuestionGenerator(MAX_FIRST_NUM, MAX_SECOND_NUM)
     player = new Player(playerName, playerElements)
@@ -467,7 +467,7 @@ const onPlayAgain = () => {
 
 const onWindowClick = () => {
     hasUserClicked = true
-    if (canPlayAudio === true) {
+    if (canPlayAudio === "true") {
         backgroundMusic.play()
     }
     window.removeEventListener("click", onWindowClick)
@@ -475,7 +475,7 @@ const onWindowClick = () => {
 
 const playBackgroundMusic = () => {
     hasUserClicked = true
-    if (canPlayAudio === true) {
+    if (canPlayAudio === "true") {
         backgroundMusic.play()
     }
     window.removeEventListener("keydown", playBackgroundMusic)
