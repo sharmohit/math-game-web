@@ -4,7 +4,7 @@ const HIGH_SCORE_KEY = "math-game-highscore"
 
 let reset_data = document.getElementById("reset_data")
 
-const reset_data.onclick = () => {
+reset_data.onclick = () => {
 
     console.log("Items deleted")
     localStorage.removeItem("HIGH_SCORE_KEY")
