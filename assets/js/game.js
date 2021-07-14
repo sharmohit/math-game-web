@@ -431,10 +431,10 @@ const init = () => {
 }
 
 const main = () => {
-    // if (playerName === "") {
-    //     window.location.replace("index.html")
-    //     return
-    // }
+    if (playerName === "") {
+        window.location.replace("index.html")
+        return
+    }
     canPlayAudio = getAudioPreference()
     questionGenerator = new QuestionGenerator(MAX_FIRST_NUM, MAX_SECOND_NUM)
     player = new Player(playerName, playerElements)
