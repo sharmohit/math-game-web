@@ -11,16 +11,6 @@
     <link type="text/css" rel="stylesheet" href="assets/css/style.css">
     <link type="text/css" rel="stylesheet" href="assets/css/common.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
-
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Creepster&display=swap"
-        rel="stylesheet">
-
     <title>Math vs Zombies | Welcome</title>
 
 </head>
@@ -28,12 +18,11 @@
 <body>
 
     
-
     <div class="popup" id="popup-1">
         <div class="overlay"></div>
         <div class="content">
             <div class="close-btn" onclick="togglePopup()">×</div>
-            <h2>Game Rules </h2>
+            <h2>Game Rules : </h2>
             <br>
             <br>
             <p>
@@ -61,33 +50,33 @@
         <div class='cell'>
             <form id="login" action="game.html">
                 <img class="main_image" src="assets/img/title.png" alt="Math vs Zombies">
-                <br />
-                <br />
-                <h3> Enter Player Name </h2>
-                    <br />
+                <h3>Please Enter Your Name</h3>
+                    <br>
+                    <p id = "name_error"> </p>
+                    <br>
                     <input type="text" id="txt" class="mytext" name="name" size="38" maxlength="18" required />
-                    <br />
-                    <br />
-                    <input class="button" type="submit" onclick="passvalues();location.href='game.html';"
+                    <br>
+                    <br>
+                    <input class="start_game" type="submit" onclick="passvalues();"
                         value="Start Game" />
             </form>
 
             <button class="highScoreButton" onclick="location.href='highscore.html'" ;> High Score </button>
             <button class="buttonPop" onclick="togglePopup()">View Rules</button>
 
-            <audio id="testAudio" src="assets/audio/music-main-menu.ogg" type="audio/ogg">
-            </audio>
-
-            <button id="playAudio" class="audiomp3" onclick="playMe()">Play &#9658</button>
-            
-
         </div>
     </div>
 
-    <input id="home_audio" class="sound" type="image" onclick="playMe()" name="" src="assets/img/no-sound.png" alt="sound">  
+    <audio id="testAudio" src="assets/audio/music-main-menu.ogg" type="audio/ogg">
+    </audio>
 
+    <button id="playAudio" class="audiomp3" onclick="playMe()">Play &#9658</button>
+
+    <input id="home_audio" class="sound" type="image" onclick="playMe()" name="" src="assets/img/sound-off.png" alt="sound">  
 
     <script type="text/javascript" src="assets/js/app.js"></script>
+
+
 </body>
 
 </html>
