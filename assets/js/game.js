@@ -23,6 +23,7 @@ let timerInterval
 let canPlayAudio
 let hasUserClicked = false
 let player = null
+let randomZombieIndex
 let questionGenerator = null
 let questionList = []
 let zombieList = []
@@ -196,17 +197,17 @@ const addUniqueQuestion = (randomQuestion) => {
 }
 
 const getRandomZombieIndex = () => {
-    const randomZombieIndex = Math.floor(Math.random() * zombieList.length)
+    let randomIndex = Math.floor(Math.random() * zombieList.length)
 
-    if (randomZombieIndex === player.moveIndex) {
+    if (randomIndex === player.moveIndex) {
         getRandomZombieIndex()
     } else {
-        return randomZombieIndex
+         randomZombieIndex = randomIndex
     }
 }
 
 const regenerateQuestions = () => {
-    const randomZombieIndex = getRandomZombieIndex()
+    getRandomZombieIndex()
     questionList.length = 0
     for (let i = 0; i < zombieList.length; i++) {
         let randomQuestion = questionGenerator.createRandomQuestion()
@@ -237,7 +238,7 @@ const createZombies = () => {
 }
 
 const setupZombies = () => {
-    const randomZombieIndex = getRandomZombieIndex()
+    getRandomZombieIndex()
     questionList.length = 0
     zombieRandomImageIndexList.length = 0
     for (let i = 0; i < zombieList.length; i++) {

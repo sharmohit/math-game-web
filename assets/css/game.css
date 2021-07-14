@@ -11,16 +11,16 @@ main {
     overflow: hidden;
 }
 
-#result {
-    width: 100vw;
-    height: 100vh;
-    text-align: center;
-}
-
 .overlay {
     z-index: 1;
     position: fixed;
     background-color: rgba(0,0,0,0.6);
+}
+
+#result {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
 }
 
 #level-container {
@@ -101,7 +101,7 @@ main {
 }
 
 #pop-up-header {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 #pop-up-footer *{

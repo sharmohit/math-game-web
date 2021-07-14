@@ -11,7 +11,8 @@ button {
     background-color: rgb(114, 74, 215);
     background-image: linear-gradient( rgb(114, 74, 215), rgb(68, 47, 104));
     border: 2px solid #ffffff;
-    padding: 5px;
+    padding: 8px;
+    font-size: 14px;
     border-radius: 5px;
     -webkit-text-stroke-width: 0.6px;
     -webkit-text-stroke-color: black;
@@ -19,6 +20,7 @@ button {
 
 button:hover {
     background-color: orange;
+    background-image: linear-gradient(orange, rgb(203, 97, 47));
 }
 
 .hidden {

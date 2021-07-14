@@ -13,25 +13,23 @@
 </head>
 
 <body>
-
-    <h1> HIGH SCORE </h1>
-    <br>
-
-    <button class = "btn_welcome" onclick="location.href='index.html';">Return to home screen</button>
-    <br>
-    <br>
-    <button class = "btn_reset" type="button" id = "reset_data"> Reset all data </button>
-
-    <table id = "highscore_table">
-        <col style="width:70%">
-	    <col style="width:30%">
-        <tr>
-            <th>Name</th>
-            <th>Level</th>
-        </tr>
-
-        <tbody id = "myTable"></tbody>
-    </table>
+    <div id="high-score-container">
+        <h1> HIGH SCORE </h1>
+        <table id = "highscore_table">
+            <col>
+            <col>
+            <tr>
+                <th>Name</th>
+                <th>Level</th>
+            </tr>
+    
+            <tbody id = "myTable"></tbody>
+        </table>
+        <div id="button-container">
+            <button class = "btn_welcome" onclick="location.href='index.html';">Return to home screen</button>
+            <button class = "btn_reset" type="button" id = "reset_data"> Reset all data </button>
+        </div>
+    </div>
 
     <script type="text/javascript" src="assets/js/highscore.js"></script>
 </body>
