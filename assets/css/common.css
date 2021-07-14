@@ -7,16 +7,18 @@
 
 button {
     cursor: pointer;
-    color: rgb(102, 83, 147);
-    border: 1px solid rgb(102, 83, 147);
+    color: #ffffff;
+    background-color: rgb(114, 74, 215);
+    background-image: linear-gradient( rgb(114, 74, 215), rgb(68, 47, 104));
+    border: 2px solid #ffffff;
     padding: 5px;
     border-radius: 5px;
+    -webkit-text-stroke-width: 0.6px;
+    -webkit-text-stroke-color: black;
 }
 
 button:hover {
-    background-color: rgb(102, 83, 147);
-    color: #ffffff;
-    border: 1px solid #ffffff;
+    background-color: orange;
 }
 
 .hidden {
