@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,71 +18,76 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Creepster&display=swap" rel="stylesheet">
- 
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Creepster&display=swap"
+        rel="stylesheet">
+
     <title>Math vs Zombies | Welcome</title>
 
 </head>
 
 <body>
 
-    <script type="text/javascript" src="assets/js/app.js"></script>
+    
 
     <div class="popup" id="popup-1">
         <div class="overlay"></div>
         <div class="content">
-          <div class="close-btn" onclick="togglePopup()">×</div>
-          <h2>Game Rules </h2>
-          <br>
-          <br>
-          <p>
+            <div class="close-btn" onclick="togglePopup()">×</div>
+            <h2>Game Rules </h2>
+            <br>
+            <br>
+            <p>
 
-         
-               1. You have 60 Seconds to correctly answer a series of math multiplication questions. <br> <br>
-               
+                1. You have 60 Seconds to correctly answer a series of math multiplication questions. <br> <br>
+
                 2. There are total 5 Levels in this game. <br> <br>
 
                 3. Press UP ARROW to move player upwards and DOWN ARROW to move player downwards.<br> <br>
 
                 4. Press SPACEBAR to select answer.<br> <br>
-                
+
                 5. Correctly answering a question advances you to next level. <br> <br>
 
                 6. You will lose if zombies reaches to the right of screen or if the time runs out.<br> <br>
-        
+
                 7. To Win ,You must defeat five levels within the specified time period.<br> <br>
 
 
             </p>
- 
-
-        </div>
-      </div>
-
-      <div class="table centered">
-        <div class='cell'>
-            <form id="login" action="game.html"> 
-                <!-- <h1> Math vs Zombies </h1> -->
-                <img class="main_image" src="assets/img/title.png" alt="Math vs Zombies">
-                <br />
-                <br />
-                <h3 > Enter Player Name </h2>
-                <br />
-                <input type="text" id = "txt" class="mytext" name="name" size="38" maxlength="18" />
-                <br />
-                <br />
-                <input class="button" type="submit" onclick="passvalues();location.href='game.html';" value="Start Game" />
-            </form>
-
-            <button class="highScoreButton" onclick="location.href='highscore.html'"; > High Score </button>  
-            <button class="buttonPop" onclick="togglePopup()">View Rules</button>
-        
-            <audio id="testAudio"  src="assets/audio/music-main-menu.ogg" type="audio/ogg">
-            </audio>
-            
-            <button  id="playAudio" class="audiomp3" onclick="playMe()">Play &#9658</button>
         </div>
     </div>
 
+    <div class="table centered">
+        <div class='cell'>
+            <form id="login" action="game.html">
+                <img class="main_image" src="assets/img/title.png" alt="Math vs Zombies">
+                <br />
+                <br />
+                <h3> Enter Player Name </h2>
+                    <br />
+                    <input type="text" id="txt" class="mytext" name="name" size="38" maxlength="18" required />
+                    <br />
+                    <br />
+                    <input class="button" type="submit" onclick="passvalues();location.href='game.html';"
+                        value="Start Game" />
+            </form>
+
+            <button class="highScoreButton" onclick="location.href='highscore.html'" ;> High Score </button>
+            <button class="buttonPop" onclick="togglePopup()">View Rules</button>
+
+            <audio id="testAudio" src="assets/audio/music-main-menu.ogg" type="audio/ogg">
+            </audio>
+
+            <button id="playAudio" class="audiomp3" onclick="playMe()">Play &#9658</button>
+            
+
+        </div>
+    </div>
+
+    <input id="home_audio" class="sound" type="image" onclick="playMe()" name="" src="assets/img/no-sound.png" alt="sound">  
+
+
+    <script type="text/javascript" src="assets/js/app.js"></script>
 </body>
+
 </html>

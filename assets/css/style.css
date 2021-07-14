@@ -78,6 +78,14 @@ h3{
   font-family: 'Amatic SC', cursive;
 }
 
+.sound{
+  max-height: 100px;
+  max-width: 100;
+  position:absolute;
+  top:0%;
+  right:0%;
+  margin: 20px;
+}
 
 /* Popup Start */
 .popup .overlay {
