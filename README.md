@@ -108,8 +108,8 @@ This page must allow the user to return to the WELCOME SCREEN.
   - [x] Create and implement view rules popup box
   - [x] Implement main menu background audio with music on/off button
 
-- [ ] 3. Implement Game Screen @MohitSharma(101342267)
-  - [ ] Design game screen
+- [x] 3. Implement Game Screen @MohitSharma(101342267)
+  - [x] Design game screen
   - [x] Implement game mechanics
   - [x] Implement game levels
   - [x] Implement game win/lose conditions
