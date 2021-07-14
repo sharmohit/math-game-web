@@ -168,6 +168,14 @@ h3{
   margin-left: 10px;
 }
 
+#form-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
 @media (max-width: 420px) {
   .main_image{
     width: 300px;

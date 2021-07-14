@@ -47,12 +47,16 @@
     <div id="welcome-container">
         <img class="main_image" src="assets/img/title.png" alt="Math vs Zombies">
         <form id="login" action="game.html">
-            <h3>Please Enter Your Name</h3>
-            <p id = "name_error"> </p>
-            <input type="text" id="txt" class="mytext" name="name" size="38" maxlength="18" required />
+            <div id="form-container">
+                <h3>Please Enter Your Name</h3>
+                <p id = "name_error"> </p>
+                <input type="text" id="txt" class="mytext" name="name" size="38" maxlength="18" required />
+                <br>
+                <input class="start_game" type="submit" onclick="passvalues();"
+                value="Start Game"/>
+            </div>
         </form>
-        <input class="start_game" type="submit" onclick="passvalues();"
-        value="Start Game"/>
+       
         <div id="button-container">
             <button class="highScoreButton" onclick="location.href='highscore.html'" ;> High Score </button>
             <button class="buttonPop" onclick="togglePopup()">View Rules</button>
