@@ -1,5 +1,4 @@
-
-
+const AUDIO_KEY = "math-game-audio"
 
 function passvalues () {
   var firstname = document.getElementById("txt").value;
@@ -21,12 +20,12 @@ function playMe () {
       this.className = "";
       document.getElementById("playAudio").innerHTML = "Play &#9658;"
       audio.pause();
-      localStorage.setItem("audio", "false")
+      localStorage.setItem(AUDIO_KEY, "false")
     }else{
       this.className = "is-playing";
       document.getElementById("playAudio").innerHTML = "Pause &#9208;";
       audio.play();
-      localStorage.setItem("audio", "true")
+      localStorage.setItem(AUDIO_KEY, "true")
     }
 }
 

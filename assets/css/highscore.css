@@ -1,17 +1,8 @@
-
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-  body {
-    background: url("https://coolwallpapers.me/th700/5789043-plants-vs-zombies-hd-wallpapers.jpg");
+body {
+    background: url('../../assets/img/background-night.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 680px;
+    height: 100vh;
   }
 
 h1{

@@ -8,6 +8,7 @@ const MAX_GAME_TIME = 60
 const MAX_HIGH_SCORE_LENGTH = 5
 const SCREEN_WIDTH_OFFSET = 0.06
 const HIGH_SCORE_KEY = "math-game-highscore"
+const AUDIO_KEY = "math-game-audio"
 //#endregion
 
 //#region Variables
@@ -19,6 +20,7 @@ let answer
 let gameOverAudio
 let remainingTime = MAX_GAME_TIME
 let timerInterval
+let canPlayAudio
 let hasUserClicked = false
 let player = null
 let questionGenerator = null
@@ -122,7 +124,6 @@ class Zombie {
 
         const moveZombie = () => {
             if (pos === screenEnd) {
-                console.log("end reached " + pos)
                 this.stopMove()
                 gameOver(false)
             } else {
@@ -198,7 +199,6 @@ const getRandomZombieIndex = () => {
     const randomZombieIndex = Math.floor(Math.random() * zombieList.length)
 
     if (randomZombieIndex === player.moveIndex) {
-        console.log("Same as player row, regenerate zombie index")
         getRandomZombieIndex()
     } else {
         return randomZombieIndex
@@ -295,7 +295,7 @@ const nextLevel = () => {
 }
 //#endregion
 
-//#region Save/Load HighScore
+//#region Save/Load
 const getHighScore = () => {
     if (HIGH_SCORE_KEY in localStorage) {
         return JSON.parse(localStorage.getItem(HIGH_SCORE_KEY));
@@ -379,6 +379,14 @@ const updateHighScore = () => {
         }
     }
 }
+
+const getAudioPreference = () => {
+    if (AUDIO_KEY in localStorage) {
+        return localStorage.getItem(AUDIO_KEY);
+    } else {
+        return false
+    }
+}
 //#endregion
 
 const gameOver = (isWon) => {
@@ -395,7 +403,9 @@ const gameOver = (isWon) => {
         gameOverAudio = new Audio("assets/audio/lose.ogg")
     }
 
-    gameOverAudio.play()
+    if (canPlayAudio === true) {
+        gameOverAudio.play()
+    }
     resultUI.classList.remove("hidden")
     clearInterval(timerInterval)
     window.removeEventListener("keydown", onKeyDown)
@@ -405,7 +415,7 @@ const gameOver = (isWon) => {
 const init = () => {
     backgroundMusic = new Audio(`assets/audio/music-level-${Math.floor(Math.random() * MAX_LEVEL) + 1}.ogg`)
     backgroundMusic.loop = true
-    if (hasUserClicked) {
+    if (hasUserClicked && (canPlayAudio === true)) {
         backgroundMusic.play()
     }
     window.addEventListener("keydown", onKeyDown)
@@ -424,7 +434,7 @@ const main = () => {
         window.location.replace("index.html")
         return
     }
-
+    canPlayAudio = getAudioPreference()
     questionGenerator = new QuestionGenerator(MAX_FIRST_NUM, MAX_SECOND_NUM)
     player = new Player(playerName, playerElements)
     init()
@@ -456,13 +466,17 @@ const onPlayAgain = () => {
 
 const onWindowClick = () => {
     hasUserClicked = true
-    backgroundMusic.play()
+    if (canPlayAudio === true) {
+        backgroundMusic.play()
+    }
     window.removeEventListener("click", onWindowClick)
 }
 
 const playBackgroundMusic = () => {
     hasUserClicked = true
-    backgroundMusic.play()
+    if (canPlayAudio === true) {
+        backgroundMusic.play()
+    }
     window.removeEventListener("keydown", playBackgroundMusic)
 }
 //#endregion
