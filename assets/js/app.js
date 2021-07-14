@@ -1,6 +1,6 @@
 const AUDIO_KEY = "math-game-audio"
 
-passvalues = () => {
+const passvalues = () => {
   if (document.getElementById("txt").value.length == 0) {
     document.getElementById("name_error").innerText = "* Name Required"
   }
@@ -14,12 +14,12 @@ passvalues = () => {
 }
 
 
- togglePopup = () => {
+const togglePopup = () => {
     document.getElementById("popup-1").classList.toggle("active")
   }
 
 
- playMe = () => {
+const playMe = () => {
 
   let audio = document.getElementById('testAudio')
 

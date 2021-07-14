@@ -1,35 +1,33 @@
-
-
 let testList = []
 
 const HIGH_SCORE_KEY = "math-game-highscore"
 
 let reset_data = document.getElementById("reset_data")
 
-reset_data.onclick = () => {
+const reset_data.onclick = () => {
 
     console.log("Items deleted")
     localStorage.removeItem("HIGH_SCORE_KEY")
-    localStorage.clear();
+    localStorage.clear()
     let table = document.getElementById("myTable")
     while (table.rows.length > 0) {
-        table.deleteRow(0);
+        table.deleteRow(0)
     }
 }
 
-getHighScore = () => {
+const getHighScore = () => {
 
     console.log("High score button clicked")
     if (HIGH_SCORE_KEY in localStorage) {
 
-        document.getElementById("test2").innerText = JSON.parse(localStorage.getItem(HIGH_SCORE_KEY));
+        document.getElementById("test2").innerText = JSON.parse(localStorage.getItem(HIGH_SCORE_KEY))
 
     } else {
         return null
     }
 }
 
-buildTable = (data) => {
+const buildTable = (data) => {
 
     let table = document.getElementById("myTable")
 
@@ -43,5 +41,5 @@ buildTable = (data) => {
     }
 }
 
-testList = JSON.parse(localStorage.getItem(HIGH_SCORE_KEY));
-buildTable(testList);
+testList = JSON.parse(localStorage.getItem(HIGH_SCORE_KEY))
+buildTable(testList)
