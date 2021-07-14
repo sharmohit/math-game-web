@@ -1,30 +1,5 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-button {
-    cursor: pointer;
-    color: rgb(102, 83, 147);
-    border: 1px solid rgb(102, 83, 147);
-    padding: 5px;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: rgb(102, 83, 147);
-    color: #ffffff;
-    border: 1px solid #ffffff;
-}
-
 main {
     background-color: #000000;
-}
-
-.hidden {
-    display: none;
 }
 
 .align-middle {
@@ -49,10 +24,15 @@ main {
 }
 
 .pop-up {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
     background-color: rgba(255, 255, 255, 0.7);
-    padding: 30px 15px;
-    max-width: 500px;
-    width: 100%;
+    max-width: 360px;
+    width: 40vw;
     border: 5px solid rgb(102, 83, 147);
     border-radius: 5px;
     margin: 0;
@@ -65,10 +45,19 @@ main {
 }
 
 .pop-up * {
-    margin: 5px;
+    margin-bottom: 5px;
 }
+
+#pop-up-header {
+    margin-bottom: 15px;
+}
+
 .pop-up h2 {
     color: #ff0;
+}
+
+#game-over-text {
+    color: rgb(102, 83, 147);
 }
 
 #level-container {
@@ -82,11 +71,11 @@ main {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    overflow: hidden;
     padding: 10px;
 }
 
 .hud-item {
-    /* border: 2px solid rgb(102, 83, 147); */
     background-color: rgba(255, 255, 255, 0.7); /*102, 83, 147*/
     color: rgb(102, 83, 147);
     padding: 5px;
@@ -138,9 +127,8 @@ main {
 /**
  * Media Queries
  **/
-
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
     .pop-up {
         max-width: 320px;
     }
-}
+} */

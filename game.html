@@ -9,16 +9,21 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
     <link type="text/css" rel="stylesheet" href="assets/css/game.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/common.css">
     <title>Math vs Zombies</title>
 </head>
 <body>
     <main>
         <div id="result" class="overlay hidden">
             <div class="pop-up">
-                <h2>Game Over</h2>
-                <p id="game-over-text">You Lose</p>
-                <button id="play-again-btn">Play Again</button>
-                <button id="high-score-btn" onclick="location.href='highscore.html';" >View High Score</button>
+                <div id="pop-up-header">
+                    <h2>Game Over</h2>
+                    <p id="game-over-text">You Lose</p>
+                </div>
+                <div id="pop-up-footer">
+                    <button id="play-again-btn">Play Again</button>
+                    <button id="high-score-btn" onclick="location.href='highscore.html';">View High Score</button>
+                </div>
             </div>
         </div>
         <div id="level-container">
