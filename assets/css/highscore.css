@@ -16,7 +16,7 @@
 
 h1{
     font-size: 50px;
-    color: white;
+    color: honeydew;
     position: absolute;
     top: 25%;
     left: 50%;
@@ -31,7 +31,8 @@ h1{
     bottom: 10%;
     left: 60%;
     transform: translate(-50%, -50%);
-    background-color:#04AA6D ;
+    background-color:orange;
+    background: linear-gradient(to right bottom, orange,purple);
     border: none;
     color: white;
     padding: 15px 32px;
@@ -47,7 +48,8 @@ h1{
     bottom: 10%;
     left: 40%;
     transform: translate(-50%, -50%);
-    background-color: #04AA6D; 
+    background-color: orange;
+    background: linear-gradient(to right bottom, orange,purple);
     border: none;
     color: white;
     padding: 15px 32px;
@@ -64,6 +66,7 @@ h1{
     position: absolute;
     top: 50%;
     left: 50%;
+    color: darkslategray;
     transform: translate(-50%, -50%);
     border-collapse: collapse;
     width: 40%;
@@ -79,12 +82,12 @@ h1{
   }
 
   
-  #highscore_table tr:hover {background-color: #ddd;}
+  #highscore_table tr:hover {background-color: orange;}
   
   #highscore_table th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: #04AA6D;
+    background-color: purple;
     color: white;
   }

@@ -21,10 +21,12 @@ function playMe () {
       this.className = "";
       document.getElementById("playAudio").innerHTML = "Play &#9658;"
       audio.pause();
+      localStorage.setItem("audio", "false")
     }else{
       this.className = "is-playing";
       document.getElementById("playAudio").innerHTML = "Pause &#9208;";
       audio.play();
+      localStorage.setItem("audio", "true")
     }
 }
 
