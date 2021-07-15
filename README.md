@@ -95,6 +95,15 @@ looks like this:
 
 This page must allow the user to return to the WELCOME SCREEN.
 ##
+## Screenshots
+<img src="https://github.com/sharmohit/math-game-web/blob/main/screenshots/01-math-vs-zombie-welcome.png" alt="Math vs Zombie Welcome Screen" width=687px height=382px>
+<img src="https://github.com/sharmohit/math-game-web/blob/main/screenshots/02-math-vs-zombie-rules.png" alt="Math vs Zombie Rules" width=687px height=382px>
+<img src="https://github.com/sharmohit/math-game-web/blob/main/screenshots/03-math-vs-zombie-level-1.png" alt="Math vs Zombie Level 1" width=687px height=382px>
+<img src="https://github.com/sharmohit/math-game-web/blob/main/screenshots/04-math-vs-zombie-level-2.png" alt="Math vs Zombie Level 2" width=687px height=382px>
+<img src="https://github.com/sharmohit/math-game-web/blob/main/screenshots/05-math-vs-zombie-lose.png" alt="Math vs Zombie Lose Screen" width=687px height=382px>
+<img src="https://github.com/sharmohit/math-game-web/blob/main/screenshots/06-math-vs-zombie-won.png" alt="Math vs Zombie Won Screen" width=687px height=382px>
+<img src="https://github.com/sharmohit/math-game-web/blob/main/screenshots/07-math-vs-zombie-highscore.png" alt="Math vs Zombie Highscore Screen" width=687px height=382px>
+
 ## Task Lists
 - [x] 1. Project and Assets Setup @MohitSharma(101342267)
   - [x] Create basic project
